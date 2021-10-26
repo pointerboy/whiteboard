@@ -5,10 +5,13 @@ const io = require('socket.io')(3000, {
 })
 
 io.on('connection', socket => {
-    console.log(socket.id);
-
     socket.on('join-wb-room', (room, cb)=>{
         socket.join(room);
         cb(`Welcome to ${room}`);
+    });
+
+    socket.on('userDrawing', (data, room)=>{
+        console.log(data);
+        socket.to(room).emit('drawing', data);
     })
 })
