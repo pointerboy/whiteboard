@@ -1,6 +1,31 @@
 import {io} from 'socket.io-client';
 
-(function(){
+const socket = io('http://localhost:3000');
+socket.on('connect', ()=>{
+    console.log(`Connected with id: ${socket.id}`);
+});
+
+const joinWhiteboardRoomBtn = document.getElementById
+("room-submit");
+const joinRoomInput = document.getElementById
+("room-input");
+
+joinWhiteboardRoomBtn.addEventListener("click", ()=>{
+    const room = joinRoomInput.value;
+
+    socket.emit('join-wb-room', room, message=>{
+        setJoinMessageToUser(message);
+    })
+})
+
+
+function setJoinMessageToUser(msg){
+    const elem = document.createElement("h2");
+    elem.textContent = msg;
+    document.getElementById("welcome-room").append(elem);
+}
+
+/*(function(){
     var socket = io();
 
     var canvas = document.getElementsByClassName('whiteboard')[0];
@@ -105,4 +130,4 @@ import {io} from 'socket.io-client';
         canvas.height = window.innerHeight;
     }
 
-})();
+})();*/

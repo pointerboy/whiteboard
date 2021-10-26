@@ -7,7 +7,7 @@
     "nodemon": "^2.0.14",
     "socket.io": "^4.3.1"
   },
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "devStart": "nodemon server.js"
   },
