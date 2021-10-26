@@ -1,24 +1,35 @@
+.whiteboard {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
 
-* {
-    box-sizing: border-box;
-  }
+  z-index:-1;
+}
 
-  html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-  }
-
-  .whiteboard {
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    top: 0;
-  }
-
-#welcome-room{
+#welcome-room {
   text-align: center;
 }
+
+#colors-toolbar{
+  position: fixed;
+  left: 50%;
+  bottom: 20px;
+  transform: translate(-50%, -50%);
+  margin: 0 auto;
+}
+
+.color {
+  display: inline-block;
+  height: 48px;
+  width: 48px;
+}
+
+.color.black { background-color: black; }
+.color.red { background-color: red; }
+.color.green { background-color: green; }
+.color.blue { background-color: blue; }
+.color.yellow { background-color: yellow; }

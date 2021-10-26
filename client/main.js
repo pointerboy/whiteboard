@@ -18,6 +18,15 @@ joinWhiteboardRoomBtn.addEventListener("click", () => {
     })
 })
 
+var colors = document.getElementsByClassName("color");
+
+for(var i = 0; i < colors.length; i++){
+    colors[i].addEventListener('click', onColorUpdate, false);
+}
+
+function onColorUpdate(e){
+    current.color = e.target.className.split(' ')[1];
+}
 
 function setJoinMessageToUser(msg) {
     const elem = document.createElement("h2");
