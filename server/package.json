@@ -1,0 +1,16 @@
+{
+  "name": "whiteboardserver",
+  "version": "1.0.0",
+  "description": "",
+  "dependencies": {
+    "@socket.io/admin-ui": "^0.2.0",
+    "nodemon": "^2.0.14",
+    "socket.io": "^4.3.1"
+  },
+  "main": "index.js",
+  "scripts": {
+    "devStart": "nodemon server.js"
+  },
+  "author": "pointerboy",
+  "license": "ISC"
+}
