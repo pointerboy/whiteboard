@@ -6,11 +6,13 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="custom.bootstrap.css">
 
     <script src="main.js" type="module"></script>
 
     <title>Whiteboard</title>
   </head>
+
   <body>
     <canvas class="whiteboard"></canvas>
     </div>
@@ -30,7 +32,7 @@
               </div>
             </li>
             <li class="nav-item">
-              <a class="nav-link disabled" href="#">Beta 0.1.0</a>
+              <a class="nav-link disabled" href="#">Beta 0.1.1</a>
             </li>
           </ul>
           <div class="form-inline my-2 my-lg-0">
@@ -41,8 +43,9 @@
       </nav>
 
       <div class="container">
+        <p id="userCount">Current user count: </p>
         <div id="welcome-room"></div>
-        <div id="colors-tool">
+        <div id="colors-toolbar">
           <div class="color black"></div>
           <div class="color red"></div>
           <div class="color green"></div>

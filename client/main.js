@@ -1,8 +1,12 @@
 import { io } from 'socket.io-client';
 
-const socket = io('http://localhost:3000');
+const socket = io('http://localhost:5000');
 socket.on('connect', () => {
     console.log(`Connected with id: ${socket.id}`);
+});
+
+socket.on('userCount', data => {
+    changeUserCount(data);
 });
 
 const joinWhiteboardRoomBtn = document.getElementById
@@ -26,6 +30,10 @@ for(var i = 0; i < colors.length; i++){
 
 function onColorUpdate(e){
     current.color = e.target.className.split(' ')[1];
+}
+
+function changeUserCount(data){
+    document.getElementById("userCount").innerText = "Current user count: " + data;
 }
 
 function setJoinMessageToUser(msg) {

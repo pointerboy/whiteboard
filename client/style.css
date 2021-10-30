@@ -17,19 +17,20 @@
 #colors-toolbar{
   position: fixed;
   left: 50%;
-  bottom: 20px;
+  bottom: 10px;
   transform: translate(-50%, -50%);
   margin: 0 auto;
 }
 
 .color {
   display: inline-block;
+  border-radius: 50px;
   height: 48px;
   width: 48px;
 }
 
 .color.black { background-color: black; }
-.color.red { background-color: red; }
-.color.green { background-color: green; }
-.color.blue { background-color: blue; }
-.color.yellow { background-color: yellow; }
+.color.red { background-color: #db2b25; }
+.color.green { background-color: #22a345; }
+.color.blue { background-color: #1d4fdb; }
+.color.yellow { background-color: #dbb21d; }
