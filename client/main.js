@@ -17,6 +17,8 @@ const joinRoomInput = document.getElementById
 joinWhiteboardRoomBtn.addEventListener("click", () => {
     const room = joinRoomInput.value;
 
+    if(room === '') return;
+
     socket.emit('join-wb-room', room, message => {
         setJoinMessageToUser(message);
     })
