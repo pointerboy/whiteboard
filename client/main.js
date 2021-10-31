@@ -30,10 +30,6 @@ function onColorUpdate(e){
     current.color = e.target.className.split(' ')[1];
 }
 
-function changeUserCount(data){
-    document.getElementById("userCount").innerText = "Current user count: " + data;
-}
-
 function setJoinMessageToUser(msg) {
     const elem = document.createElement("h2");
     elem.textContent = msg;
