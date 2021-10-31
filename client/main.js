@@ -5,10 +5,6 @@ socket.on('connect', () => {
     console.log(`Connected with id: ${socket.id}`);
 });
 
-socket.on('userCount', data => {
-    changeUserCount(data);
-});
-
 const joinWhiteboardRoomBtn = document.getElementById
     ("room-submit");
 const joinRoomInput = document.getElementById
