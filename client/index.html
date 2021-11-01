@@ -36,7 +36,8 @@
             </li>
           </ul>
           <div class="form-inline my-2 my-lg-0">
-            <button data-toggle="modal" data-target="#connectionModal" class="btn btn-danger my-2 my-sm-0" type="submit">Connect</button>
+            <button id="exit-room" class="btn btn-danger my-2 my-sm-0" type="submit">Disconnect</button>
+            <button id="modal-connect-button" data-toggle="modal" data-target="#connectionModal" class="btn btn-danger my-2 my-sm-0" type="submit">Connect</button>
           </form>
         </div>
       </nav>
@@ -53,6 +54,7 @@
               </button>
             </div>
             <div class="modal-body">
+              <input id="nick-name" class="form-control mr-sm-2" type="text" placeholder="Nickname" aria-label="Nickname"></br>
               <input id="room-input" class="form-control mr-sm-2" type="search" placeholder="Room ID" aria-label="Room ID">
             </div>
             <div class="modal-footer">

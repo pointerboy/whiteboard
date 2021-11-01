@@ -1,22 +1,47 @@
 import { io } from 'socket.io-client';
 
 const socket = io('http://localhost:3000');
+
 socket.on('connect', () => {
     console.log(`Connected with id: ${socket.id}`);
+});
+
+socket.on('disconnected', () => {
+    socket.disconnect();
+    console.log("User has disconnected");
 });
 
 const joinWhiteboardRoomBtn = document.getElementById
     ("room-submit");
 const joinRoomInput = document.getElementById
     ("room-input");
+const exitRoomBtn = document.getElementById
+    ("exit-room");
+const nickName = document.getElementById
+    ("nick-name");
+const modalShowFormBtn = document.getElementById
+    ("modal-connect-button");
+
+$(exitRoomBtn).hide();
+
+exitRoomBtn.addEventListener('click', ()=> {
+    socket.emit('disconnection');
+    $(modalShowFormBtn).show();
+    $(exitRoomBtn).hide();
+});
 
 joinWhiteboardRoomBtn.addEventListener("click", () => {
+    socket.connect();
+
     const room = joinRoomInput.value;
+    const nickname = nickName.value;
 
-    if(room === '') return;
+    if(room === '' || nickname === '') return;
 
-    socket.emit('join-wb-room', room, message => {
+    socket.emit('join-wb-room', room, nickname, message => {
         setJoinMessageToUser(message);
+        $(modalShowFormBtn).hide();
+        $(exitRoomBtn).show();
     })
 })
 

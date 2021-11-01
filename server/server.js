@@ -7,7 +7,7 @@ const io = require('socket.io')(3000, {
 var takenRooms = [];
 
 io.on('connection', socket => {
-    socket.on('join-wb-room', (room, cb) => {
+    socket.on('join-wb-room', (room, nickname, cb) => {
         if (takenRooms.includes(room)) {
             cb(`Welcome to ${room}`);
         } else {
@@ -17,6 +17,10 @@ io.on('connection', socket => {
 
         socket.room = room;
         socket.join(room);
+    });
+
+    socket.on('disconnection', function(){
+        socket.emit('disconnected');
     });
 
     socket.on('userDrawing', (data, room) => {
