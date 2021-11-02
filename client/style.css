@@ -29,6 +29,10 @@
   width: 48px;
 }
 
+canvas{
+  cursor: url(images/pen.png), crosshair;
+}
+
 .color.black { background-color: black; }
 .color.red { background-color: #db2b25; }
 .color.green { background-color: #22a345; }
