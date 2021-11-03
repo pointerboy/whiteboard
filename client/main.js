@@ -7,8 +7,13 @@ socket.on('connect', () => {
 });
 
 socket.on('disconnected', () => {
+    var userSocket = socket.id;
     socket.disconnect();
-    console.log("User has disconnected");
+    console.log(`Disconnected: ${userSocket}`);
+});
+
+socket.on('clear', ()=>{
+    clearWhiteBoard();
 });
 
 const joinWhiteboardRoomBtn = document.getElementById
@@ -21,6 +26,8 @@ const nickName = document.getElementById
     ("nick-name");
 const modalShowFormBtn = document.getElementById
     ("modal-connect-button");
+const clearBoardBtn = document.getElementById
+    ("clear-button");
 
 $(exitRoomBtn).hide();
 
@@ -28,6 +35,11 @@ exitRoomBtn.addEventListener('click', ()=> {
     socket.emit('disconnection');
     $(modalShowFormBtn).show();
     $(exitRoomBtn).hide();
+});
+
+clearBoardBtn.addEventListener("click", () =>{
+    socket.emit('clearBoard', joinRoomInput.value);
+    clearWhiteBoard();
 });
 
 joinWhiteboardRoomBtn.addEventListener("click", () => {
@@ -79,8 +91,13 @@ socket.on('drawing', data => {
     onDrawingEvent(data);
 });
 
+
 window.addEventListener('resize', onResize, false);
 onResize();
+
+function clearWhiteBoard(){
+    context.clearRect(0, 0, canvas.width, canvas.height);
+}
 
 function drawLine(x0, y0, x1, y1, color, emit) {
     context.beginPath();

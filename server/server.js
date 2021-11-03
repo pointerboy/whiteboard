@@ -23,8 +23,11 @@ io.on('connection', socket => {
         socket.emit('disconnected');
     });
 
+    socket.on('clearBoard', (room) =>{
+        socket.to(room).emit('clear');
+    });
+
     socket.on('userDrawing', (data, room) => {
-        console.log(data);
         socket.to(room).emit('drawing', data);
     });
 });
